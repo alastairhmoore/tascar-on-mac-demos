@@ -11,9 +11,10 @@
 			</plugins>
 			</sound>
 		</source>
-		<receiver name="out" type="omni">
+		<receiver name="out" type="hrtf">
 			<position>0 0 0 0</position>
 		</receiver>
 	</scene>
-	<connect src="render.main:out.0" dest="system:playback_1" />
+	<connect src="render.main:out_l" dest="system:playback_1" />
+	<connect src="render.main:out_r" dest="system:playback_2" />
 </session>
