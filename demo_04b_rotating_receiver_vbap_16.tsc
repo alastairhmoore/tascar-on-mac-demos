@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<session name="demo" license="CC BY-SA 3.0" attribution="Alastair H Moore" playonload="true" loop="true">
+	<scene name="main" guiscale="6">
+		<source name="target">
+			<position>0 1 0 0</position>
+			<sound>
+				<plugins>
+					<sndfileasync name="demo_04_data/synced_looped_noise_bursts.wav" loop="0"/>
+				</plugins>
+			</sound>
+		</source>
+		<receiver name="out" type="vbap" layout="demo_04_data/speaker_layout.spk">
+			<position>0 0 0 0</position>
+		  <orientation importcsv="demo_04_data/stepped_rotation.csv" />
+		</receiver>
+		<!-- ... -->
+	</scene>
+
+	<!-- start jconvolver -->
+	<modules>
+    <system command="jconvolver demo_04_data/jconvolver_hrir.conf" sleep="0.5"/>
+  </modules>
+
+
+<!-- connect jconvolver's aux1return to the main outputs: -->
+  <connect src="render.main:out.0" dest="jconvolver:in.0" />
+  <connect src="render.main:out.1" dest="jconvolver:in.1" />
+  <connect src="render.main:out.2" dest="jconvolver:in.2" />
+  <connect src="render.main:out.3" dest="jconvolver:in.3" />
+  <connect src="render.main:out.4" dest="jconvolver:in.4" />
+  <connect src="render.main:out.5" dest="jconvolver:in.5" />
+  <connect src="render.main:out.6" dest="jconvolver:in.6" />
+  <connect src="render.main:out.7" dest="jconvolver:in.7" />
+  <connect src="render.main:out.8" dest="jconvolver:in.8" />
+  <connect src="render.main:out.9" dest="jconvolver:in.9" />
+  <connect src="render.main:out.10" dest="jconvolver:in.10" />
+  <connect src="render.main:out.11" dest="jconvolver:in.11" />
+  <connect src="render.main:out.12" dest="jconvolver:in.12" />
+  <connect src="render.main:out.13" dest="jconvolver:in.13" />
+  <connect src="render.main:out.14" dest="jconvolver:in.14" />
+  <connect src="render.main:out.15" dest="jconvolver:in.15" />
+</session>

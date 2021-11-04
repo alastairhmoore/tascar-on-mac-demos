@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<session name="demo" license="CC BY-SA 3.0" attribution="Alastair H Moore" playonload="true" loop="true">
+	<scene name="main" guiscale="6">
+		<source name="target">
+			<position>0 1 0 0</position>
+			<sound>
+				<plugins>
+          <sndfileasync name="demo_04_data/synced_looped_noise_bursts.wav" loop="0"/>
+				</plugins>
+			</sound>
+		</source>
+		<receiver name="out" type="hrtf">
+			<position>0 0 0 0</position>
+      <orientation importcsv="demo_04_data/stepped_rotation.csv" />
+		</receiver>
+	</scene>
+	<connect src="render.main:out_l" dest="system:playback_1" />
+	<connect src="render.main:out_r" dest="system:playback_2" />
+</session>
