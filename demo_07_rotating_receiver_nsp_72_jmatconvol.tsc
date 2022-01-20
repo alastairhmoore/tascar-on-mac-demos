@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<session name="demo" license="CC BY-SA 3.0" attribution="Alastair H Moore" playonload="true" loop="true">
+	<scene name="main" guiscale="6">
+		<source name="target">
+			<position>0 1 0 0</position>
+			<sound>
+				<plugins>
+					<pink level="90" fmax="16000"/>
+				</plugins>
+			</sound>
+		</source>
+		<receiver name="out" type="nsp" layout="demo_07_data/speaker_layout.spk">
+			<position>0 0 0 0</position>
+		  	<orientation importcsv="demo_07_data/stepped_rotation.csv" />
+		</receiver>
+	</scene>
+
+	<!-- start jconvolver -->
+	<modules>
+    		<system command="jmatconvol demo_07_data/jmatconvol_hrir.conf" sleep="0.5"/>
+  	</modules>
+
+
+	<!-- connect virtuals speakers to jcovonvolver: -->
+  <connect src="render.main:out.0" dest="jmatconvol:in.0" />
+  <connect src="render.main:out.1" dest="jmatconvol:in.1" />
+  <connect src="render.main:out.2" dest="jmatconvol:in.2" />
+  <connect src="render.main:out.3" dest="jmatconvol:in.3" />
+  <connect src="render.main:out.4" dest="jmatconvol:in.4" />
+  <connect src="render.main:out.5" dest="jmatconvol:in.5" />
+  <connect src="render.main:out.6" dest="jmatconvol:in.6" />
+  <connect src="render.main:out.7" dest="jmatconvol:in.7" />
+  <connect src="render.main:out.8" dest="jmatconvol:in.8" />
+  <connect src="render.main:out.9" dest="jmatconvol:in.9" />
+  <connect src="render.main:out.10" dest="jmatconvol:in.10" />
+  <connect src="render.main:out.11" dest="jmatconvol:in.11" />
+  <connect src="render.main:out.12" dest="jmatconvol:in.12" />
+  <connect src="render.main:out.13" dest="jmatconvol:in.13" />
+  <connect src="render.main:out.14" dest="jmatconvol:in.14" />
+  <connect src="render.main:out.15" dest="jmatconvol:in.15" />
+  <connect src="render.main:out.16" dest="jmatconvol:in.16" />
+  <connect src="render.main:out.17" dest="jmatconvol:in.17" />
+  <connect src="render.main:out.18" dest="jmatconvol:in.18" />
+  <connect src="render.main:out.19" dest="jmatconvol:in.19" />
+  <connect src="render.main:out.20" dest="jmatconvol:in.20" />
+  <connect src="render.main:out.21" dest="jmatconvol:in.21" />
+  <connect src="render.main:out.22" dest="jmatconvol:in.22" />
+  <connect src="render.main:out.23" dest="jmatconvol:in.23" />
+  <connect src="render.main:out.24" dest="jmatconvol:in.24" />
+  <connect src="render.main:out.25" dest="jmatconvol:in.25" />
+  <connect src="render.main:out.26" dest="jmatconvol:in.26" />
+  <connect src="render.main:out.27" dest="jmatconvol:in.27" />
+  <connect src="render.main:out.28" dest="jmatconvol:in.28" />
+  <connect src="render.main:out.29" dest="jmatconvol:in.29" />
+  <connect src="render.main:out.30" dest="jmatconvol:in.30" />
+  <connect src="render.main:out.31" dest="jmatconvol:in.31" />
+  <connect src="render.main:out.32" dest="jmatconvol:in.32" />
+  <connect src="render.main:out.33" dest="jmatconvol:in.33" />
+  <connect src="render.main:out.34" dest="jmatconvol:in.34" />
+  <connect src="render.main:out.35" dest="jmatconvol:in.35" />
+  <connect src="render.main:out.36" dest="jmatconvol:in.36" />
+  <connect src="render.main:out.37" dest="jmatconvol:in.37" />
+  <connect src="render.main:out.38" dest="jmatconvol:in.38" />
+  <connect src="render.main:out.39" dest="jmatconvol:in.39" />
+  <connect src="render.main:out.40" dest="jmatconvol:in.40" />
+  <connect src="render.main:out.41" dest="jmatconvol:in.41" />
+  <connect src="render.main:out.42" dest="jmatconvol:in.42" />
+  <connect src="render.main:out.43" dest="jmatconvol:in.43" />
+  <connect src="render.main:out.44" dest="jmatconvol:in.44" />
+  <connect src="render.main:out.45" dest="jmatconvol:in.45" />
+  <connect src="render.main:out.46" dest="jmatconvol:in.46" />
+  <connect src="render.main:out.47" dest="jmatconvol:in.47" />
+  <connect src="render.main:out.48" dest="jmatconvol:in.48" />
+  <connect src="render.main:out.49" dest="jmatconvol:in.49" />
+  <connect src="render.main:out.50" dest="jmatconvol:in.50" />
+  <connect src="render.main:out.51" dest="jmatconvol:in.51" />
+  <connect src="render.main:out.52" dest="jmatconvol:in.52" />
+  <connect src="render.main:out.53" dest="jmatconvol:in.53" />
+  <connect src="render.main:out.54" dest="jmatconvol:in.54" />
+  <connect src="render.main:out.55" dest="jmatconvol:in.55" />
+  <connect src="render.main:out.56" dest="jmatconvol:in.56" />
+  <connect src="render.main:out.57" dest="jmatconvol:in.57" />
+  <connect src="render.main:out.58" dest="jmatconvol:in.58" />
+  <connect src="render.main:out.59" dest="jmatconvol:in.59" />
+  <connect src="render.main:out.60" dest="jmatconvol:in.60" />
+  <connect src="render.main:out.61" dest="jmatconvol:in.61" />
+  <connect src="render.main:out.62" dest="jmatconvol:in.62" />
+  <connect src="render.main:out.63" dest="jmatconvol:in.63" />
+  <connect src="render.main:out.64" dest="jmatconvol:in.64" />
+  <connect src="render.main:out.65" dest="jmatconvol:in.65" />
+  <connect src="render.main:out.66" dest="jmatconvol:in.66" />
+  <connect src="render.main:out.67" dest="jmatconvol:in.67" />
+  <connect src="render.main:out.68" dest="jmatconvol:in.68" />
+  <connect src="render.main:out.69" dest="jmatconvol:in.69" />
+  <connect src="render.main:out.70" dest="jmatconvol:in.70" />
+  <connect src="render.main:out.71" dest="jmatconvol:in.71" />
+</session>
