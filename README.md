@@ -5,7 +5,7 @@ At present, only the command line interface to TASCAR is available on macOS.  On
 
 ## Installation
 
-On macOS we must build TASCAR for ourselves. Fortunately this is quite straightforward.
+On macOS we must build TASCAR for ourselves. Fortunately this is quite straightforward.  Previously only `tascar_cli` was available on macOS and it was built with `cmake`. Now more tools are available and they are built using `make`.
 
 1. Install `homebrew` according to the instructions at [brew.sh](http://https://brew.sh/), i.e. run
 
@@ -18,7 +18,7 @@ On macOS we must build TASCAR for ourselves. Fortunately this is quite straightf
 1. Install tascar's dependencies (this takes many minutes)
 
     ```
-    brew install pkgconfig libxml2 glibmm libxml++ jack liblo libsndfile gtkmm3 eigen boost gsl fftw libsamplerate xerces-c cmake
+    brew install pkgconfig libxml2 glibmm libxml++ jack liblo libsndfile gtkmm3 eigen boost gsl fftw libsamplerate xerces-c
     ``` 
 
 1. Clone the tascar repository
@@ -27,16 +27,17 @@ On macOS we must build TASCAR for ourselves. Fortunately this is quite straightf
     mkdir -p ~/git/gisogrimm &&  cd ~/git/gisogrimm &&  git clone https://github.com/gisogrimm/tascar.git
     ```
 
-1. Build `tascar_cli`
+1. Build all the targets
 
     ```
-    cd tascar && mkdir build && cd build && cmake -B . -S ../ && make
+    cd tascar
+    make
     ``` 
 
-1. Make the executable visible to your system (N.B. to make this persistent add the line to the end of you `.bash_profile` file, or whatever is used to set up the environment on your system)
+1. Install to the default location (requires elevated permissions)
 
     ```
-    export PATH=~/git/gisogrimm/tascar/build:$PATH
+    sudo make install
     ```
 
 
