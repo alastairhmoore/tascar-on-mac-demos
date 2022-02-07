@@ -1,11 +1,11 @@
 # tascar-on-mac-demos
 A collection of resources to explore functionality of TASCAR.
 
-At present, only the command line interface to TASCAR is available on macOS.  On linux there is a GUI and many more tools.
+Previously, only the command line interface to TASCAR was available on macOS.  Now most of the Linux tools are available.  Note that the build system has changed from `cmake` to `make`.
 
 ## Installation
 
-On macOS we must build TASCAR for ourselves. Fortunately this is quite straightforward.  Previously only `tascar_cli` was available on macOS and it was built with `cmake`. Now more tools are available and they are built using `make`.
+On macOS we must build TASCAR for ourselves. Fortunately this is quite straightforward. 
 
 1. Install `homebrew` according to the instructions at [brew.sh](http://https://brew.sh/), i.e. run
 
