@@ -18,7 +18,7 @@ On macOS we must build TASCAR for ourselves. Fortunately this is quite straightf
 1. Install tascar's dependencies (this takes many minutes)
 
     ```
-    brew install pkgconfig libxml2 glibmm libxml++ jack liblo libsndfile gtkmm3 eigen boost gsl fftw libsamplerate xerces-c
+    brew install pkgconfig libxml2 glibmm libxml++ jack liblo libsndfile gtkmm3 eigen boost gsl fftw libsamplerate xerces-c libltc gtksourceviewmm3 coreutils adwaita-icon-them
     ``` 
 
 1. Clone the tascar repository
