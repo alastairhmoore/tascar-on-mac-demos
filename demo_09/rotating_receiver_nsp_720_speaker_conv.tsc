@@ -7,8 +7,8 @@
 				<plugins>
           <!-- <sndfile name="male_speech.wav" /> -->
           <!-- <sndfileasync name="male_speech.wav" /> -->
-          <pink level="90" fmax="16000"/>
-            
+          <!-- <pink level="90" fmax="16000"/> -->
+
 				</plugins>
 			</sound>
       <orientation>
