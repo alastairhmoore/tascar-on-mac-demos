@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<session license="CC BY-SA 3.0" attribution="Alastair H Moore" playonload="true" duration="30" loop="true">
+	<scene name="main" guiscale="6">
+		<source name="target">
+			<position>0 0 0 0</position>
+			<sound x="2"><!--offset to front-->
+				<plugins>
+          <!-- <sndfile name="male_speech.wav" /> -->
+          <!-- <sndfileasync name="male_speech.wav" /> -->
+          <!-- <pink level="90" fmax="16000"/> -->
+
+				</plugins>
+			</sound>
+      <orientation>
+        0 0 0 0
+        30 360 0 0 0
+      </orientation>
+		</source>
+    <!-- <receiver name="out_omni" type="omni">
+      <position>0 0 0 0</position>
+    </receiver> -->
+    <!-- <receiver name="out_nsp" type="nsp" layout="speaker_layout_with_conv.spk">
+      <position>0 0 0 0</position>
+    </receiver> -->
+    <receiver name="out_vbap" type="vbap_1norm" layout="speaker_layout_with_conv.spk">
+      <position>0 0 0 0</position>
+    </receiver>
+    <!-- <receiver name="out_hrtf" type="hrtf">
+      <position>0 0 0 0</position>
+    </receiver> -->
+  </scene>
+
+  <!-- omni receiver -->
+  <!-- <connect src="render.main:out_omni.0" dest="system:playback_1" />
+  <connect src="render.main:out_omni.0" dest="system:playback_2" /> -->
+
+
+<!-- nsp receiver -->
+<!-- <connect src="render.main:out_nsp.conv.0" dest="system:playback_1" />
+<connect src="render.main:out_nsp.conv.1" dest="system:playback_2" /> -->
+
+  <!-- vbap receiver -->
+  <connect src="render.main:out_vbap.conv.0" dest="system:playback_1" />
+  <connect src="render.main:out_vbap.conv.1" dest="system:playback_2" />
+
+<!-- hrtf receiver -->
+<!-- <connect src="render.main:out_hrtf_l" dest="system:playback_1" />
+<connect src="render.main:out_hrtf_r" dest="system:playback_2" /> -->
+</session>
