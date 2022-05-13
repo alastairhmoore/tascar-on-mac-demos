@@ -100,7 +100,9 @@ tascar_cli demo_04a_rotating_receiver_hrtf.tsc
 ```
 
 ## Demo 9
-As of TASCAR release 0.222 convolution of virtual speaker feeds with associated impulse responses can be done without any external dependencies. This example uses a very dense horizontal array with 0.5 degree spacing in the nearest speaker renderer.  Running in realtime is not possible so instead it uses `tascar_renderfile`. I have been unable to get either the `sndfile` or `sndfileasync` plugins to work on macOS, so instead we pass in a wav file on the command line.  For ease of typing a bash script is provided.  For me this example took about 9 mins to generate 30 seconds of audio.  The output wav file has 724 channels. The first 720 are the virtual speaker feeds and the last 4 are the microphone array signals.  I'm not aware (yet) of a method to only save the 4 array channels so you'll have to extract them yourself.
+As of TASCAR release 0.222 convolution of virtual speaker feeds with associated impulse responses can be done without any external dependencies. This example uses a very dense horizontal array with 0.5 degree spacing in the nearest speaker renderer.  Running in realtime is not possible so instead it uses `tascar_renderfile`. I have been unable to get either the `sndfile` or `sndfileasync` plugins to work on macOS, so instead we pass in a wav file on the command line.  For ease of typing a bash script is provided.  For me this example took about 9 mins to generate 30 seconds of audio.  The output wav file has 724 channels. The first 720 are the virtual speaker feeds and the last 4 are the microphone array signals.
+
+As of release 0.224 it is now possible to specify a channel map so only the convolved signals are saved.
 ```
 cd demo_09
 bash run.sh
