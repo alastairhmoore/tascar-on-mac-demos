@@ -1,11 +1,11 @@
 # tascar-on-mac-demos
 A collection of resources to explore functionality of TASCAR.
 
-At present, only the command line interface to TASCAR is available on macOS.  On linux there is a GUI and many more tools.
+Previously, only the command line interface to TASCAR was available on macOS.  Now most of the Linux tools are available.  Note that the build system has changed from `cmake` to `make`.
 
 ## Installation
 
-On macOS we must build TASCAR for ourselves. Fortunately this is quite straightforward.
+On macOS we must build TASCAR for ourselves. Fortunately this is quite straightforward. 
 
 1. Install `homebrew` according to the instructions at [brew.sh](http://https://brew.sh/), i.e. run
 
@@ -18,7 +18,7 @@ On macOS we must build TASCAR for ourselves. Fortunately this is quite straightf
 1. Install tascar's dependencies (this takes many minutes)
 
     ```
-    brew install pkgconfig libxml2 glibmm libxml++ jack liblo libsndfile gtkmm3 eigen boost gsl fftw libsamplerate xerces-c cmake
+    brew install pkgconfig libxml2 glibmm libxml++ jack liblo libsndfile gtkmm3 eigen boost gsl fftw libsamplerate xerces-c libltc gtksourceviewmm3 coreutils adwaita-icon-theme
     ``` 
 
 1. Clone the tascar repository
@@ -27,16 +27,17 @@ On macOS we must build TASCAR for ourselves. Fortunately this is quite straightf
     mkdir -p ~/git/gisogrimm &&  cd ~/git/gisogrimm &&  git clone https://github.com/gisogrimm/tascar.git
     ```
 
-1. Build `tascar_cli`
+1. Build all the targets
 
     ```
-    cd tascar && mkdir build && cd build && cmake -B . -S ../ && make
+    cd tascar
+    make
     ``` 
 
-1. Make the executable visible to your system (N.B. to make this persistent add the line to the end of you `.bash_profile` file, or whatever is used to set up the environment on your system)
+1. Install to the default location (requires elevated permissions)
 
     ```
-    export PATH=~/git/gisogrimm/tascar/build:$PATH
+    sudo make install
     ```
 
 
@@ -99,6 +100,7 @@ The impulse responses and the jconvolver conifiguration are saved in the `demo_0
 tascar_cli demo_04a_rotating_receiver_hrtf.tsc
 ```
 
+
 ## Demo 9
 As of TASCAR release 0.222 convolution of virtual speaker feeds with associated impulse responses can be done without any external dependencies. This example uses a very dense horizontal array with 0.5 degree spacing in the nearest speaker renderer.  Running in realtime is not possible so instead it uses `tascar_renderfile`. I have been unable to get either the `sndfile` or `sndfileasync` plugins to work on macOS, so instead we pass in a wav file on the command line.  For ease of typing a bash script is provided.  For me this example took about 9 mins to generate 30 seconds of audio.  The output wav file has 724 channels. The first 720 are the virtual speaker feeds and the last 4 are the microphone array signals.
 
@@ -107,3 +109,4 @@ As of release 0.224 it is now possible to specify a channel map so only the conv
 cd demo_09
 bash run.sh
 ```
+
