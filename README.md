@@ -105,8 +105,32 @@ tascar_cli demo_04a_rotating_receiver_hrtf.tsc
 As of TASCAR release 0.222 convolution of virtual speaker feeds with associated impulse responses can be done without any external dependencies. This example uses a very dense horizontal array with 0.5 degree spacing in the nearest speaker renderer.  Running in realtime is not possible so instead it uses `tascar_renderfile`. I have been unable to get either the `sndfile` or `sndfileasync` plugins to work on macOS, so instead we pass in a wav file on the command line.  For ease of typing a bash script is provided.  For me this example took about 9 mins to generate 30 seconds of audio.  The output wav file has 724 channels. The first 720 are the virtual speaker feeds and the last 4 are the microphone array signals.
 
 As of release 0.224 it is now possible to specify a channel map so only the convolved signals are saved.
+
 ```
 cd demo_09
 bash run.sh
 ```
 
+## Demo 10
+Collecting data such as the positions and levels of sources/receivers can be helpful.  This is achieved using a combination of LSL and OSC.  In the scene, modules are used to generate the required datastreams and then the `datalogging` finds these streams.  OSC control is used to choose where the files should be saved and to control the recording.
+
+Terminal 1
+
+```
+tascar demo_10_datalogging.tsc
+```
+
+Terminal 2
+
+```
+$ tascar_sendosc osc.udp://localhost:9877
+/main/out/mute 1
+/main/out/mute 0
+/session_outputdir demo_10_logs
+/session_trialid first_attempt
+/session_start
+/session_stop
+/tascar/quit
+```
+
+To inspect the saved file run the matlab script `demo_10_show_log.m`.

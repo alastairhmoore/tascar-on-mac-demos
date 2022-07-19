@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<session attribution="Alastair H Moore" loop="true" duration="8" playonload="false">
+	<scene name="main" guiscale="8">
+		<source name="src">
+			<position >
+				0      2    0  0
+        2      2   10  0
+        6      2  -10  0
+        8      2    0  0
+			</position>
+			<sound>
+				<plugins>
+					<pink level="90" fmax="16000"/>
+			</plugins>
+			</sound>
+		</source>
+		<receiver name="out" type="hrtf">
+			<position>0 0 0 0</position>
+		</receiver>
+	</scene>
+	<modules>
+		<lsljacktime sendwhilestopped="false"/>
+		<levels2osc pattern="/main/*" />
+		<pos2lsl pattern="/main/out" transport="false"/>
+		<sleep sleep="2.0" />
+		<datalogging headless="true">
+			<lsl predicate="name='TASCARtime'" />
+			<lsl predicate="type='level'" />
+			<lsl predicate="type='position'" />
+			<oscs path="/seat_marker" />
+		</datalogging>
+	</modules>
+	<connect src="render.main:out_l" dest="system:playback_1" />
+	<connect src="render.main:out_r" dest="system:playback_2" />
+</session>
