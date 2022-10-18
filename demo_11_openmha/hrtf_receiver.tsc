@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<session license="CC BY-SA 3.0" attribution="Alastair H Moore" playonload="true" loop="true">
+	<scene name="processed" guiscale="6">
+		<source name="target" localpos="1 0 0">
+			<sound>
+				<plugins>
+					<sndfile name="F3s4.wav"  level="70" resample="true" loop="true" license="C BY-ND 4.0" attribution="Imperial College London and Universoty of Delft" />
+				</plugins>
+			</sound>
+		</source>
+        <source name="noise" localpos="1 0 0">
+            <orientation importcsv="../demo_04_data/stepped_rotation.csv" />
+			<sound>
+				<plugins>
+					<pink level="70" fmax="16000"/>
+				</plugins>
+			</sound>
+		</source>
+		<receiver name="out" type="hrtf">
+			<position>0 0 0 0</position>
+		</receiver>
+	</scene>
+    <modules>
+        <system command="mha ?read:mha.cfg io.name=mha port=33337 cmd=start" sleep="1"/>
+    </modules>
+
+
+	<scene name="unprocessed" guiscale="6">
+		<source name="target" localpos="1 0 0">
+			<sound>
+				<plugins>
+					<sndfile name="F3s4.wav"  level="70" resample="true" loop="true" license="C BY-ND 4.0" attribution="Imperial College London and Universoty of Delft" />
+				</plugins>
+			</sound>
+		</source>
+        <source name="noise" localpos="1 0 0">
+            <orientation importcsv="../demo_04_data/stepped_rotation.csv" />
+			<sound>
+				<plugins>
+					<pink level="70" fmax="16000"/>
+				</plugins>
+			</sound>
+		</source>
+		<receiver name="out" type="hrtf">
+			<position>0 0 0 0</position>
+		</receiver>
+	</scene>
+    <modules>
+        <system command="mha ?read:mha.cfg io.name=mha port=33337 cmd=start" sleep="1"/>
+        <route name="proc" id="unproc" lingain="1" channels="2"/>
+        <route name="unproc" id="proc" lingain="1" channels="2" mute="true"/>
+    </modules>
+
+
+
+	<connect src="render.processed:out_l" dest="mha:in_1" />
+	<connect src="render.processed:out_r" dest="mha:in_2" />
+	<connect src="mha:out_1" dest="proc:in.0" />
+	<connect src="mha:out_2" dest="proc:in.1" />
+    <connect src="render.unprocessed:out_l" dest="unproc:in.0" />
+	<connect src="render.unprocessed:out_r" dest="unproc:in.1" />
+    <connect src="proc:out.0" dest="system:playback_1" />
+    <connect src="proc:out.1" dest="system:playback_2" />
+    <connect src="unproc:out.0" dest="system:playback_1" />
+    <connect src="unproc:out.1" dest="system:playback_2" />
+</session>
