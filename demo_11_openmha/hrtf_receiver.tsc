@@ -46,7 +46,10 @@
 		</receiver>
 	</scene>
     <modules>
+        <!-- most important bit...does the openmha enhancement -->
         <system command="mha ?read:mha.cfg io.name=mha port=33337 cmd=start" sleep="1"/>
+
+        <!-- use name 'route' objects so that we can mute/unmute in TASCAR mixer window to compare the processed and unprocessed audio -->
         <route name="proc" id="unproc" lingain="1" channels="2"/>
         <route name="unproc" id="proc" lingain="1" channels="2" mute="true"/>
     </modules>
