@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<session license="CC BY-SA 3.0" attribution="Alastair H Moore" playonload="true" loop="true">
+	<scene name="processed" guiscale="6">
+		<source name="target" localpos="1 0 0">
+			<sound>
+				<plugins>
+					<sndfile name="F3s4.wav"  level="70" resample="true" loop="true" license="C BY-ND 4.0" attribution="Imperial College London and Universoty of Delft" />
+				</plugins>
+			</sound>
+		</source>
+        <source name="noise" localpos="1 0 0">
+            <orientation importcsv="../demo_04_data/stepped_rotation.csv" />
+			<sound>
+				<plugins>
+					<pink level="70" fmax="16000"/>
+				</plugins>
+			</sound>
+		</source>
+		<receiver name="out" type="nsp" layout="speaker_layout_Kayser2009_horiz_36.spk">
+			<position>0 0 0 0</position>
+		</receiver>
+	</scene>
+  <modules>
+      <system command="mha ?read:mha_live_beamformer_48kHz.cfg io.name=mha port=33337 cmd=start" sleep="2"/>
+  </modules>
+
+	<connect src="render.processed:out.bte_fl" dest="mha:in_1" />
+	<connect src="render.processed:out.bte_fr" dest="mha:in_2" />
+	<connect src="render.processed:out.bte_bl" dest="mha:in_3" />
+	<connect src="render.processed:out.bte_br" dest="mha:in_4" />
+	<connect src="mha:out_1" dest="system:playback_1" />
+	<connect src="mha:out_2" dest="system:playback_2" />
+
+</session>
