@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<session license="CC BY-SA 3.0" attribution="Alastair H Moore" playonload="true" loop="true">
+	<scene name="the_scene" guiscale="6">
+		<source name="target" localpos="1 0 0">
+			<sound>
+				<plugins>
+					<sndfile name="F3s4.wav"  level="70" resample="true" loop="true" license="C BY-ND 4.0" attribution="Imperial College London and Universoty of Delft" />
+				</plugins>
+			</sound>
+		</source>
+        <source name="noise" localpos="1 0 0">
+            <orientation importcsv="../demo_04_data/stepped_rotation.csv" />
+			<sound>
+				<plugins>
+					<pink level="70" fmax="16000"/>
+				</plugins>
+			</sound>
+		</source>
+		<receiver name="out" type="hrtf">
+			<position>0 0 0 0</position>
+		</receiver>
+	</scene>
+  <modules>
+		<!-- most important bit...does the openmha enhancement -->
+		<system command="echo Running mha..." sleep="0.1" />
+		<system command="bash hrtf_receiver_with_mha_script.sh"/>
+	</modules>
+	<!-- connections from mha to the output are defined in the mha script but 
+	 		 that doesn't seem to work for connecting tascar to the mha inputs	-->
+	<connect src="render.the_scene:out_l" dest="mha:in_1" />
+	<connect src="render.the_scene:out_r" dest="mha:in_2" />
+	
+</session>
