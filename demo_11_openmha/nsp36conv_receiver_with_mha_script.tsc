@@ -21,9 +21,12 @@
 		</receiver>
 	</scene>
   <modules>
+    <route name="proc" id="unproc" lingain="1" channels="2"/>
+    <route name="unproc" id="proc" lingain="1" channels="2" mute="true"/>
 		<!-- most important bit...does the openmha enhancement -->
 		<system command="echo Running mha..." sleep="0.1" />
-		<system command="bash nsp36conv_receiver_with_mha_script.sh" sleep="2"/>
+		<system command="bash nsp36conv_receiver_with_mha_script.sh" sleep="3"/>
+    
 	</modules>
 	<!-- connections from mha to the output are defined in the mha script but 
 	 		 that doesn't seem to work for connecting tascar to the mha inputs	-->
@@ -31,5 +34,15 @@
 	<connect src="render.the_scene:out.bte_fr" dest="mha:in_2" />
 	<connect src="render.the_scene:out.bte_bl" dest="mha:in_3" />
 	<connect src="render.the_scene:out.bte_br" dest="mha:in_4" />
+
+	<connect src="mha:out_1" dest="proc:in.0" />
+	<connect src="mha:out_2" dest="proc:in.1" />	
+	<connect src="render.the_scene:out.bte_fl" dest="unproc:in.0" />
+	<connect src="render.the_scene:out.bte_fr" dest="unproc:in.1" />
+	
+	<connect src="proc:out.0" dest="system:playback_1" />
+	<connect src="proc:out.1" dest="system:playback_2" />
+	<connect src="unproc:out.0" dest="system:playback_1" />
+	<connect src="unproc:out.1" dest="system:playback_2" />	
 	
 </session>
